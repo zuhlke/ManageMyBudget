@@ -4,7 +4,10 @@
 Managing budget for vulnerable people.
 
 ### Installation
-
+To install using node package manager, run:
+```
+npm install
+```
 ### Contributing
 
 ### License
