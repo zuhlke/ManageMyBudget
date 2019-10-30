@@ -25,3 +25,17 @@ resource "aws_s3_bucket" "manage-my-budget" {
     target_prefix = "log/"
   }
 }
+
+resource "aws_docdb_cluster" "documentdb-cluster" {
+  cluster_identifier = "manage-my-budget-db-cluster"
+  availability_zones = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+  master_username = ""
+  master_password = ""
+}
+
+resource "aws_docdb_cluster_instance" "cluster-instances" {
+  cluster_identifier = "${aws_docdb_cluster.documentdb-cluster.id}"
+  instance_class = "db.r5.large"
+  count = 2
+  identifier = "manage-my-budget-db-${count.index}"
+}
