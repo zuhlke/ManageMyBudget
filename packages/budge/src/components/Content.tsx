@@ -8,7 +8,6 @@ export default class Content extends Component {
                     <div className="govuk-grid-row">
                         <div className="govuk-grid-column-two-thirds">
                             <h1 className="govuk-heading-xl">Welcome to Manage My Budget Service</h1>
-                            <script>console.log("v0.01");</script>
                             <p>This project is aimed to help vulnerable people to manage their budget.</p>
 
                             <h2 className="govuk-heading-m">Project Objectives</h2>
