@@ -1,8 +1,8 @@
 import React from 'react';
 import MyHeader from './components/MyHeader'
 import MyFooter from "./components/MyFooter";
-import './App.scss';
 import Content from "./components/Content";
+import './App.scss';
 
 
 const App: React.FC = () => {
