@@ -16,10 +16,10 @@ function calculateBudget(budget: Budget) {
 
 function showMessage(balance: number) {
     if (balance >= 0) {
-        return "You have enough money in your account.";
+        return "You have enough money in your account";
     }
 
-    return "You do not have enough money in your account."
+    return "You do not have enough money in your account"
 }
 
 let budget = new Budget(Math.random()*1000 + 1, Math.random() * 1000 + 1);
