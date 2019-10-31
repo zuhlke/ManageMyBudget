@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 class Budget {
     income: number = 0.0;
@@ -25,8 +25,7 @@ function showMessage(balance: number) {
 let budget = new Budget(Math.random()*1000 + 1, Math.random() * 1000 + 1);
 let balance = calculateBudget(budget);
 
-export default class BudgetScreen extends Component {
-    render() {
+const BudgetScreen = () => {
         return (
             <div className="govuk-panel govuk-panel--confirmation">
                 <h2 className="govuk-panel__title">
@@ -38,5 +37,6 @@ export default class BudgetScreen extends Component {
                 </div>
             </div>
         )
-    }
 }
+
+export default BudgetScreen;
