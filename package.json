@@ -3,20 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/runtime": "^7.6.3",
     "@types/jest": "24.0.20",
     "@types/node": "12.11.7",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.3",
     "govuk-frontend": "^3.3.0",
-    "govuk-react": "^0.7.2",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dev-utils": "^9.1.0",
     "react-dom": "^16.11.0",
-    "react-markdown": "^4.2.2",
     "react-scripts": "3.2.0",
-    "styled-components": "^4.4.0",
     "typescript": "3.6.4"
   },
   "scripts": {
