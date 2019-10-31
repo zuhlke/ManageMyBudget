@@ -4,7 +4,6 @@ import MyFooter from "./components/MyFooter";
 import Content from "./components/Content";
 import './App.scss';
 
-
 const App: React.FC = () => {
     return (
         <div>
@@ -14,6 +13,7 @@ const App: React.FC = () => {
                     <div className="govuk-grid-row">
                         <div className="govuk-grid-column-two-thirds">
                             <Content></Content>
+                            <button className="govuk-button"> Continue </button>
                         </div>
                     </div>
                 </main>
