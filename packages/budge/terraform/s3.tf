@@ -40,3 +40,16 @@ EOF
     target_prefix = "log/"
   }
 }
+
+resource "aws_s3_bucket" "deployment-bucket" {
+  bucket = "${var.deployment-bucket-name}"
+  acl = "private"
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+
+}
