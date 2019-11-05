@@ -4,12 +4,17 @@ variable "region" {
 }
 
 variable "hosting-bucket-name" {
-  description = "A bucket name for hosting the static website"
+  description = "The bucket name for hosting the static website"
   type = "string"
 }
 
 variable "logging-bucket-name" {
-  description = "A bucket name for storing logs"
+  description = "The bucket name for storing logs"
+  type = "string"
+}
+
+variable "deployment-bucket-name" {
+  description = "The bucket name for storing Lambda zip"
   type = "string"
 }
 
@@ -50,5 +55,15 @@ variable "sg-name" {
 
 variable "subnet-name" {
   description = "The name of a subnet for DocumentDB"
+  type = "string"
+}
+
+variable "lambda-function-name" {
+  description = "The name of a Lambda function"
+  type = "string"
+}
+
+variable "lambda-role-name" {
+  description = "The name of a role for Lambda function"
   type = "string"
 }
