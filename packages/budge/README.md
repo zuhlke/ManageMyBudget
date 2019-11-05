@@ -13,7 +13,7 @@ npm install
 Terrform scripts require `secrets.tfvars` where sensitive data are stored. For this project, this file must contain `db-username` and `db-password`. To deploy the resources, run:
 ```$xslt
 terraform init
-terraform apply -var-file="degub.tfvars" -var-file="secrets.tfvars"
+terraform apply -var-file="debug.tfvars" -var-file="secrets.tfvars"
 ```
 ### Contributing
 
