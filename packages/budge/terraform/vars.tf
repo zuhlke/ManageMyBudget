@@ -3,6 +3,21 @@ variable "region" {
   type = "string"
 }
 
+variable "project-number" {
+  description = "Zuhlke project number"
+  type = "string"
+}
+
+variable "project-name" {
+  description = "The project name"
+  type = "string"
+}
+
+variable "project-owner" {
+  description = "The owner of the project"
+  type = "string"
+}
+
 variable "hosting-bucket-name" {
   description = "The bucket name for hosting the static website"
   type = "string"
