@@ -1,7 +1,7 @@
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "${var.vpc-name}"
+  name = "${var.project-number}-${var.vpc-name}"
   cidr = "10.0.0.0/16"
 
   azs             = ["${var.region}a", "${var.region}b", "${var.region}c"]
@@ -16,7 +16,7 @@ module "vpc" {
 }
 
 resource "aws_security_group" "sg" {
-  name        = "${var.sg-name}"
+  name        = "${var.project-number}-${var.sg-name}"
   vpc_id      = "${module.vpc.vpc_id}"
 
   ingress {

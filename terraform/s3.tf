@@ -1,10 +1,16 @@
 resource "aws_s3_bucket" "manage-my-budget-logs" {
-  bucket = "${var.logging-bucket-name}"
+  bucket = "${var.project-number}-${var.logging-bucket-name}"
   acl = "log-delivery-write"
+
+  tags = {
+    ProjectName = "${var.project-name}"
+    ProjectNumber = "${var.project-number}"
+    Owner = "${var.project-owner}"
+  }
 }
 
 resource "aws_s3_bucket" "manage-my-budget" {
-  bucket = "${var.hosting-bucket-name}"
+  bucket = "${var.project-number}-${var.hosting-bucket-name}"
   acl = "public-read"
   policy = <<EOF
 {
@@ -15,7 +21,7 @@ resource "aws_s3_bucket" "manage-my-budget" {
       "Effect":"Allow",
       "Principal": "*",
       "Action":["s3:GetObject"],
-      "Resource":["arn:aws:s3:::${var.hosting-bucket-name}/*"]
+      "Resource":["arn:aws:s3:::${var.project-number}-${var.hosting-bucket-name}/*"]
     }
   ]
 }
@@ -26,9 +32,9 @@ EOF
   }
 
   tags = {
-    Name = " ManageMyBudget"
-    Environment = "Dev"
-    Description = "A bench project in Manchester"
+    ProjectName = "${var.project-name}"
+    ProjectNumber = "${var.project-number}"
+    Owner = "${var.project-owner}"
   }
 
   versioning {
@@ -42,7 +48,7 @@ EOF
 }
 
 resource "aws_s3_bucket" "deployment-bucket" {
-  bucket = "${var.deployment-bucket-name}"
+  bucket = "${var.project-number}-${var.deployment-bucket-name}"
   acl = "private"
   server_side_encryption_configuration {
     rule {
@@ -52,4 +58,9 @@ resource "aws_s3_bucket" "deployment-bucket" {
     }
   }
 
+  tags = {
+    ProjectName = "${var.project-name}"
+    ProjectNumber = "${var.project-number}"
+    Owner = "${var.project-owner}"
+  }
 }

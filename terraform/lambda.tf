@@ -1,9 +1,3 @@
-//data "archive_file" "lambda-zip" {
-//  type = "zip"
-//  source_dir = ""
-//  output_path = ""
-//}
-
 resource "aws_s3_bucket_object" "lambda-zip" {
   bucket = "${aws_s3_bucket.deployment-bucket.bucket}"
   key = "lambda.zip"
@@ -11,7 +5,7 @@ resource "aws_s3_bucket_object" "lambda-zip" {
 }
 
 resource "aws_lambda_function" "lambda" {
-  function_name = "${var.lambda-function-name}"
+  function_name = "${var.project-number}-${var.lambda-function-name}"
 
   s3_bucket = "${aws_s3_bucket.deployment-bucket.bucket}"
   s3_key = "${aws_s3_bucket_object.lambda-zip.key}"
@@ -24,10 +18,16 @@ resource "aws_lambda_function" "lambda" {
     subnet_ids = flatten([module.vpc.private_subnets])
     security_group_ids = ["${aws_security_group.sg.id}"]
   }
+
+  tags = {
+    ProjectName = "${var.project-name}"
+    ProjectNumber = "${var.project-number}"
+    Owner = "${var.project-owner}"
+  }
 }
 
 resource "aws_iam_role" "lambda-iam-role" {
-  name = "${var.lambda-role-name}"
+  name = "${var.project-number}-${var.lambda-role-name}"
 
   assume_role_policy = <<EOF
 {
@@ -44,6 +44,12 @@ resource "aws_iam_role" "lambda-iam-role" {
   ]
 }
 EOF
+
+  tags = {
+    ProjectName = "${var.project-name}"
+    ProjectNumber = "${var.project-number}"
+    Owner = "${var.project-owner}"
+  }
 }
 
 data "aws_iam_policy" "AWSLambdaVPCAccessExecutionRole" {
