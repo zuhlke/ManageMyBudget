@@ -8,6 +8,7 @@
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.3",
     "govuk-frontend": "^3.3.0",
+    "mongodb": "^3.3.3",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dev-utils": "^9.1.0",
