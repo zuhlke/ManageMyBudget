@@ -43,13 +43,23 @@ variable "docdb-cluster-instance-name" {
   type = "string"
 }
 
-variable "db-username" {
+variable "docdb-username" {
   description = "Master username"
   type = "string"
 }
 
-variable "db-password" {
+variable "docdb-password" {
   description = "Master password"
+  type = "string"
+}
+
+variable "docdb-db-name" {
+  description = "The database name"
+  type = "string"
+}
+
+variable "docdb-collection-name" {
+  description = "The database collection name"
   type = "string"
 }
 

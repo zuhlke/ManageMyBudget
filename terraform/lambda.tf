@@ -24,6 +24,14 @@ resource "aws_lambda_function" "lambda" {
     ProjectNumber = "${var.project-number}"
     Owner = "${var.project-owner}"
   }
+
+  environment {
+    variables = {
+      MONGODB_URI = "mongodb://${var.docdb-username}:${var.docdb-password}@${aws_docdb_cluster.documentdb-cluster.endpoint}:${aws_docdb_cluster.documentdb-cluster.port}/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred"
+      DB_NAME = "${var.docdb-db-name}"
+      DB_COLLECTION = "${var.docdb-collection-name}"
+    }
+  }
 }
 
 resource "aws_iam_role" "lambda-iam-role" {

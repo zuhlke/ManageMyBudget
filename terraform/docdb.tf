@@ -14,8 +14,8 @@ resource "aws_docdb_cluster" "documentdb-cluster" {
   db_subnet_group_name = "${aws_docdb_subnet_group.subnet-group.name}"
   cluster_identifier = "${var.project-number}-${var.docdb-cluster-name}"
   engine = "docdb"
-  master_username = "${var.db-username}"
-  master_password = "${var.db-password}"
+  master_username = "${var.docdb-username}"
+  master_password = "${var.docdb-password}"
   db_cluster_parameter_group_name = "${aws_docdb_cluster_parameter_group.docdb-pg.name}"
   vpc_security_group_ids = ["${aws_security_group.sg.id}"]
 
