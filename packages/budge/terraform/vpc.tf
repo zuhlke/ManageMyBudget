@@ -13,6 +13,12 @@ module "vpc" {
   enable_nat_gateway = true
   enable_vpn_gateway = true
   single_nat_gateway = false
+
+  tags = {
+    ProjectName = "${var.project-name}"
+    ProjectNumber = "${var.project-number}"
+    Owner = "${var.project-owner}"
+  }
 }
 
 resource "aws_security_group" "sg" {
@@ -31,5 +37,11 @@ resource "aws_security_group" "sg" {
     to_port         = 0
     protocol        = "-1"
     cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    ProjectName = "${var.project-name}"
+    ProjectNumber = "${var.project-number}"
+    Owner = "${var.project-owner}"
   }
 }
