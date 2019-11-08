@@ -11,7 +11,7 @@ npm install
 
 ### Provision resources on AWS
 Terrform scripts require `secrets.tfvars` where sensitive data are stored. 
-For this project, this file must contain `docdb-username`, `docdb-password`, `docdb-db-name`, and `docdb-collection-name`. To deploy the resources, run:
+For this project, this file must contain `docdb-username`, `docdb-password`, `docdb-db-namew`, and `docdb-collection-name`. To deploy the resources, run:
 ```$xslt
 terraform init
 terraform apply -var-file="debug.tfvars" -var-file="secrets.tfvars"

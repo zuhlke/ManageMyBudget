@@ -81,3 +81,8 @@ resource "aws_iam_role_policy_attachment" "lambda-docdb-policy" {
   role = "${aws_iam_role.lambda-iam-role.name}"
   policy_arn = "${data.aws_iam_policy.AmazonDocDBFullAccess.arn}"
 }
+
+resource "aws_iam_role_policy_attachment" "lambda-execute-policy" {
+  role = "${aws_iam_role.lambda-iam-role.name}"
+  policy_arn = "${data.aws_iam_policy.AWSLambdaExecute.arn}"
+}
