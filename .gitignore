@@ -105,3 +105,4 @@ fabric.properties
 
 # Ignore Lerna debug
 lerna-debug.log
+yarn.lock

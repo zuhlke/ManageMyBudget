@@ -12,7 +12,7 @@
   "author": "Asyl Jumagaliyev",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^12.12.3"
+    "@types/node": "^12.12.7"
   },
   "dependencies": {
     "mongodb": "^3.3.3"

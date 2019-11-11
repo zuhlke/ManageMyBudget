@@ -4,9 +4,9 @@
 Managing budget for vulnerable people.
 
 ### Installation
-To install using node package manager, run:
+To install, run:
 ```
-npm install
+lerna bootstrap
 ```
 
 ### Contributing
