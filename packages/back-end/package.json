@@ -1,0 +1,20 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "A simple TypeScript node project for AWS Lambda.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "node",
+    "typescript",
+    "lambda"
+  ],
+  "author": "Asyl Jumagaliyev",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.12.3"
+  },
+  "dependencies": {
+    "mongodb": "^3.3.3"
+  }
+}
