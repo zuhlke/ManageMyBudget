@@ -49,6 +49,8 @@ cmake-build-*/
 
 # File-based project format
 *.iws
+*.iml
+
 
 # IntelliJ
 out/
@@ -111,3 +113,4 @@ yarn.lock
 
 # misc
 /node_modules
+package-lock.json

@@ -1,4 +1,4 @@
-@import "node_modules/govuk-frontend/govuk/all";
+@import "../../../node_modules/govuk-frontend/govuk/all";
 
 .App {
   text-align: center;
@@ -27,7 +27,7 @@
   display: inline-block;
   min-width: 125px;
   padding-top: 112px;
-  background-image: url("../node_modules/govuk-frontend/govuk/assets/images/govuk-crest.png");
+  background-image: url("../../../node_modules/govuk-frontend/govuk/assets/images/govuk-crest.png");
   background-repeat: no-repeat;
   background-position: 50% 0%;
   background-size: 125px 102px;
