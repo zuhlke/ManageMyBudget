@@ -1,40 +1,45 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import MyHeader from './components/MyHeader'
 import MyFooter from "./components/MyFooter";
 import Content from "./components/Content";
 import './App.scss';
-import BudgetScreen from "./components/BudgetScreen";
+import BudgetFunctionalComponent from "./components/BudgetScreen";
 
-const MainPage = () => {
-    const[page, setPage] = useState(1)
-
-    let button
-    let myContent
+function defineButtonAndContent(page: any, setPage: any) {
+    let button, myContent;
 
     if (page == 1) {
-        button = <ContinueButton onClick={() => setPage(2)}/>
-        myContent = LoadMainPage()
+        button = <ContinueButton onClick={() => setPage(3)} />;
+        myContent = LoadMainPage();
     } else {
-        button = <BackButton onClick={() => setPage(1)}/>
-        myContent = LoadBudgetScreen()
+        button = <BackButton onClick={() => setPage(1)} />;
+        myContent = LoadBudgetScreen();
     }
+
+    return { button, myContent };
+}
+
+const MainPage = () => {
+    const [page, setPage] = useState(1);
+
+    const customContent = defineButtonAndContent(page, setPage);
     return (
         <div>
-            <MyHeader></MyHeader>
+            <MyHeader />
             <div className="govuk-width-container">
                 <main className="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
                     <div className="govuk-grid-row">
                         <div className="govuk-grid-column-two-thirds">
-                            {myContent}
-                            {button}
+                            {customContent.myContent}
+                            {customContent.button}
                         </div>
                     </div>
                 </main>
             </div>
-            <MyFooter></MyFooter>
+            <MyFooter />
         </div>
-    )
-}
+    );
+};
 
 function ContinueButton(props: any) {
     return (
@@ -49,11 +54,11 @@ function BackButton(props: any) {
 }
 
 function LoadMainPage() {
-    return <Content/>
+    return <Content />
 }
 
 function LoadBudgetScreen() {
-    return <BudgetScreen/>
+    return <BudgetFunctionalComponent />
 }
 
 export default MainPage

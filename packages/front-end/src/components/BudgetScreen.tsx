@@ -1,42 +1,34 @@
 import React from 'react'
+import { AccountInfo } from '../datatypes/userInformation';
+import useGetBalanceService from '../services/useGetBalanceService';
+import { EndpointStatus } from '../datatypes/endpointStatus';
 
-class Budget {
-    income: number = 0.0;
-    outgoing: number = 0.0;
+const BudgetFunctionalComponent: React.FC<{}> = () => {
+    const getBalanceService: EndpointStatus<AccountInfo> = useGetBalanceService();
 
-    constructor(public inc: number, public out: number) {
-        this.income = inc;
-        this.outgoing = out;
-    }
+    return (
+        <div className="govuk-panel govuk-panel--confirmation">
+            {getBalanceService.status === 'initialising' && <div>Loading...</div>}
+
+            {getBalanceService.status === 'errored' && (
+                <div>Error: Endpoint failed for the following reason: {getBalanceService.error.message}</div>
+            )
+            }
+
+            {getBalanceService.status === 'completed'
+                && getBalanceService.response !== undefined
+                && (
+                    <div>
+                        <h2 className="govuk-panel__title">{getBalanceService.response.message}</h2>
+                        <div className="govuk-panel__body">
+                            Your current balance <br />
+                            <strong>{getBalanceService.response.currentBalance}</strong>
+                        </div>
+                    </div>
+                )
+            }
+        </div>
+    );
 }
 
-function calculateBudget(budget: Budget) {
-    return (budget.income - budget.outgoing).toFixed(2);
-}
-
-function showMessage(balance: number) {
-    if (balance >= 0) {
-        return "You have enough money in your account";
-    }
-
-    return "You do not have enough money in your account"
-}
-
-let budget = new Budget(Math.random()*1000 + 1, Math.random() * 1000 + 1);
-let balance = calculateBudget(budget);
-
-const BudgetScreen = () => {
-        return (
-            <div className="govuk-panel govuk-panel--confirmation">
-                <h2 className="govuk-panel__title">
-                    {showMessage(+balance)}
-                </h2>
-                <div className="govuk-panel__body">
-                    Your current balance <br/>
-                    <strong>{balance}</strong>
-                </div>
-            </div>
-        )
-}
-
-export default BudgetScreen;
+export default BudgetFunctionalComponent;
