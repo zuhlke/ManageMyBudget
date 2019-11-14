@@ -38,6 +38,16 @@ variable "deployment-bucket-name" {
   type = "string"
 }
 
+variable "terraform-state-bucket" {
+  description = "The bucket name for storing Terraform state"
+  type = "string"
+}
+
+variable "terraform-lock-dynamodb" {
+  description = "The table name for locking Terraform state in DynamoDB"
+  type = "string"
+}
+
 variable "docdb-cluster-name" {
   description = "The name of a cluster for DocumentDB"
   type = "string"

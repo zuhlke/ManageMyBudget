@@ -10,6 +10,10 @@ project-owner = "Zuhlke UK - Manchester"
 hosting-bucket-name = "manage-my-budget"
 logging-bucket-name = "manage-my-budget-logs"
 deployment-bucket-name = "manage-my-budget-deploy"
+terraform-state-bucket = "manage-my-budget-tf-state"
+
+# DynamoDB terraform state lock
+terraform-lock-dynamodb = "manage-my-budget-tf-lock"
 
 # DocumentDB cluster and instances
 docdb-cluster-name = "manage-my-budget-docdb-cluster"
