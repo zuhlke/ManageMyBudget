@@ -4,7 +4,7 @@ region = "eu-west-2"
 # Project related info
 project-name = "Manage My Budget"
 project-number = "z10016"
-project-owner = "Asyl Jumagaliyev"
+project-owner = "Zuhlke UK - Manchester"
 
 # S3 bucket for hosting static website
 hosting-bucket-name = "manage-my-budget"

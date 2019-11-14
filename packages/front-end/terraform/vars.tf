@@ -1,3 +1,8 @@
+variable "accountId" {
+  description = "The ID of the AWS Account"
+  type = "string"
+}
+
 variable "region" {
   description = "The region to deploy DocumentDB"
   type = "string"

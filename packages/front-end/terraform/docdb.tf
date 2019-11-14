@@ -27,7 +27,7 @@ resource "aws_docdb_cluster" "documentdb-cluster" {
 }
 
 resource "aws_docdb_cluster_instance" "cluster-instances" {
-  count = 2
+  count = 1
   identifier = "${var.project-number}-${var.docdb-cluster-instance-name}-${count.index}"
   cluster_identifier = "${aws_docdb_cluster.documentdb-cluster.id}"
   instance_class = "db.r5.large"
