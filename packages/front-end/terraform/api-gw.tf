@@ -81,8 +81,8 @@ resource "aws_api_gateway_deployment" "devDeployment" {
 module "apigateway-cors" {
   source  = "bridgecrewio/apigateway-cors/aws"
   version = "1.2.0"
-  api = aws_api_gateway_rest_api.scrapbookApi.id
-  resources = [aws_api_gateway_resource.baseline.id]
+  api = "${aws_api_gateway_rest_api.scrapbookApi.id}"
+  resources = ["${aws_api_gateway_resource.baseline.id}"]
   methods = ["GET", "POST", "OPTIONS"]
 
   enable = "true"
