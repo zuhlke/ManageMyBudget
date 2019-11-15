@@ -66,7 +66,7 @@ resource "aws_lambda_permission" "apigw_lambda" {
   function_name = "${aws_lambda_function.lambda.function_name}"
   principal     = "apigateway.amazonaws.com"
 
-  source_arn = "arn:aws:execute-api:${var.region}:${var.accountId}:${aws_api_gateway_rest_api.scrapbookApi.id}/*/${aws_api_gateway_method.baselineGet.http_method}${aws_api_gateway_resource.baseline.path}"
+  source_arn = "${aws_api_gateway_rest_api.scrapbookApi.execution_arn}/*/${aws_api_gateway_method.baselineGet.http_method}${aws_api_gateway_resource.baseline.path}"
 }
 
 resource "aws_api_gateway_deployment" "devDeployment" {
