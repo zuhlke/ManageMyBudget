@@ -12,11 +12,20 @@
   "author": "Asyl Jumagaliyev",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^24.0.23",
     "@types/mongodb": "^3.3.10",
-    "@types/node": "^12.12.7"
+    "@types/node": "^12.12.7",
+    "jest": "^24.9.0"
   },
   "dependencies": {
     "mongodb": "^3.3.3",
     "node": "^13.1.0"
-  }
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.(ts|tsx)?$": "ts-jest"
+    }
+  },
+  "test": "jest"
 }
