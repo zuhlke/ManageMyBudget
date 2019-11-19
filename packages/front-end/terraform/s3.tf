@@ -65,4 +65,3 @@ resource "aws_s3_bucket" "deployment-bucket" {
     Owner = var.project-owner
   }
 }
-

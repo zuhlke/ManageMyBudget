@@ -1,13 +1,16 @@
-//data "archive_file" "compress-lambda" {
-//  type        = "zip"
-//  source_dir  = ""
-//  output_path = ""
-//}
+resource "null_resource" "local-shell-command" {
+  provisioner "local-exec" {
+    command = <<EOT
+        npm install --only=prod ${path.module}/../../back-end
+        ditto -c -k --sequesterRsrc --keepParent ../../back-end lambda.zip
+EOT
+  }
+}
 
 resource "aws_s3_bucket_object" "lambda-zip" {
   bucket = aws_s3_bucket.deployment-bucket.bucket
   key    = "lambda.zip"
-  source = "../lambda.zip"
+  source = "lambda.zip"
 }
 
 resource "aws_lambda_function" "lambda" {
@@ -93,4 +96,3 @@ resource "aws_iam_role_policy_attachment" "lambda-execute-policy" {
   role = aws_iam_role.lambda-iam-role.name
   policy_arn = data.aws_iam_policy.AWSLambdaExecute.arn
 }
-
