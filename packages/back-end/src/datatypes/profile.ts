@@ -12,6 +12,10 @@ export class Profile {
         this.name = name;
     }
 
+    public static from(id: number): Profile {
+        return new Profile(id);
+    }
+
     public equals(object: any) {
         if (object === this) {
             return true;
@@ -30,27 +34,46 @@ export class Profile {
         return this.id;
     }
 
-    public hasFamily(): boolean {
-        return this.familyId !== undefined && this.familyId !== null;
+    public hasId(): boolean {
+        return this.id === -1;
     }
 
     public getFamilyId(): number {
-        return (this.hasFamily()) ? this.familyId! : -1;
+        return (this.hasFamilyId()) ? this.familyId! : -1;
     }
 
-    public hasAge(): boolean {
-        return this.age !== undefined && this.age !== null;
+    public hasFamilyId(): boolean {
+        return this.familyId !== undefined && this.familyId !== null;
+    }
+
+    public withFamilyId(familyId: number): Profile {
+        this.familyId = familyId;
+        return this;
     }
 
     public getAge(): number {
         return (this.hasAge()) ? this.age! : -1;
     }
 
-    public hasName(): boolean {
-        return this.name !== undefined && this.name !== null;
+    public hasAge(): boolean {
+        return this.age !== undefined && this.age !== null;
+    }
+
+    public withAge(age: number): Profile {
+        this.age = age;
+        return this;
     }
 
     public getName(): string {
         return (this.hasName()) ? this.name! : "";
+    }
+
+    public hasName(): boolean {
+        return this.name !== undefined && this.name !== null;
+    }
+
+    public withName(name: string): Profile {
+        this.name = name;
+        return this;
     }
 }
