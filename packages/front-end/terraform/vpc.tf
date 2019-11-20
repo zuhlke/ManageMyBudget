@@ -45,4 +45,3 @@ resource "aws_security_group" "sg" {
     Owner         = var.project-owner
   }
 }
-

@@ -92,4 +92,3 @@ module "apigateway-cors" {
   headers = ["Content-Type", "X-Amz-Date", "Authorization", "X-Api-Key", "X-Amz-Security-Token"]
   origin  = "*"
 }
-

@@ -107,4 +107,3 @@ variable "lambda-role-name" {
   description = "The name of a role for Lambda function"
   type        = string
 }
-
